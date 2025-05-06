@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "rxjs-marbles": "^7.0.1"
+  }
+}
