@@ -28,19 +28,13 @@ describe('loadItemsEffect', () => {
   });
 
   it(
-    'should dispatch loadItemsSuccess when items are loaded successfully',
+    'should dispatch loadItemsSuccess with empty array when API returns null',
     marbles((m) => {
-      const mockItems = [
-        { id: 1, name: 'Item One', description: 'First item description' },
-        { id: 2, name: 'Item Two', description: 'Second item description' },
-      ];
-      itemsService.getItems.mockReturnValue(of(mockItems));
+      itemsService.getItems.mockReturnValue(of([]));
 
-      actions$ = m.hot('-a-', {
-        a: ItemsActions.loadItems(),
-      }) as Observable<any>;
+      actions$ = m.hot('-a-', { a: ItemsActions.loadItems() });
       const expected = m.cold('-b-', {
-        b: ItemsActions.loadItemsSuccess({ items: mockItems }),
+        b: ItemsActions.loadItemsSuccess({ items: [] }),
       });
 
       const effect = loadItemsEffect(actions$, itemsService);

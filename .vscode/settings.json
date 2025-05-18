@@ -1,3 +1,4 @@
 {
-    "nxConsole.nxWorkspacePath": "my-workspace"
+    "nxConsole.nxWorkspacePath": "my-workspace",
+    "nxConsole.generateAiAgentRules": true
 }

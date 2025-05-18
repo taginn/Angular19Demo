@@ -1,1 +1,7 @@
-<p>ItemsList works!</p>
+<div *ngIf="vm$ | async as vm">
+  <ul>
+    <li *ngFor="let item of vm.items">{{ item.name }}</li>
+  </ul>
+  <div *ngIf="!vm.loaded">Loading...</div>
+  <div *ngIf="vm.selected">Selected: {{ vm.selected.name }}</div>
+</div>
